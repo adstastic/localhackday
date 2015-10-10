@@ -17,7 +17,7 @@ def by_id(id_num):
 	cur = connect().cursor()
 	cur.execute('SELECT * FROM rooms WHERE id={}'.format(id_num))
 	response = cur.fetchall()
-	return {row['id']:[row['name'], row['size'], row['type'], row['htmlref']] for row in response}
+	return {row[0]:[row[1], row[2], row[3], row[4]] for row in response}
 	
 def add_new(name, size, room_type, htmlref):
 	
