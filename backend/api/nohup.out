@@ -1,0 +1,304 @@
+Traceback (most recent call last):
+  File "app.py", line 1, in <module>
+    from flask import Flask, jsonify, request, abort
+ImportError: No module named flask
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/var/www/html/localhackday/backend/api/app.py", line 57, in not_found
+    return make_response(jsonify({'error': '404 Not found'}), 404)
+NameError: global name 'make_response' is not defined
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:48] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:49] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/var/www/html/localhackday/backend/api/app.py", line 57, in not_found
+    return make_response(jsonify({'error': '404 Not found'}), 404)
+NameError: global name 'make_response' is not defined
+144.82.190.19 - - [10/Oct/2015 13:29:49] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:49] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:49] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:50] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:50] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+TypeError: 'NoneType' object is not iterable
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:52] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:53] "GET /api/room/12 HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:29:59] "GET /api/room/12 HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+TypeError: 'NoneType' object is not iterable
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:00] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+TypeError: 'NoneType' object is not iterable
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:03] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/var/www/html/localhackday/backend/api/read_db.py", line 8, in search_name
+    cur.execute('SELECT * FROM rooms WHERE name LIKE "%{}%"'.format(query))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+ProgrammingError: (1064, 'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'asdf"%"\' at line 1')
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:09] "GET /api/search/%22asdf%22?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+TypeError: 'NoneType' object is not iterable
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+TypeError: 'NoneType' object is not iterable
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:27] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:28] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:28] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:30:28] "GET /api/search/asdf?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+TypeError: 'NoneType' object is not iterable
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:21] "GET /api/search/f?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/var/www/html/localhackday/backend/api/app.py", line 29, in search
+    return jsonify(db.search_name(query))
+  File "/var/www/html/localhackday/backend/api/read_db.py", line 8, in search_name
+    cur.execute('SELECT * FROM rooms WHERE name LIKE "%{}%"'.format(query))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+ProgrammingError: (1064, 'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'f"%"\' at line 1')
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+144.82.190.19 - - [10/Oct/2015 13:31:24] "GET /api/search/%22f%22?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -

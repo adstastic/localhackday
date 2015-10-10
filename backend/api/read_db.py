@@ -5,7 +5,7 @@ import json
 def search_name(query):
 	
 	cur = connect().cursor()
-	cur.execute('SELECT * FROM rooms WHERE name LIKE "%{}%"'.format(query))
+	cur.execute('SELECT * FROM rooms WHERE name LIKE %{}%'.format(query))
 	
 	response = cur.fetchall()
 

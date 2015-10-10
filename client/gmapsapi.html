@@ -1,55 +1,122 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Simple Polygon</title>
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-      }
-    </style>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Adding a Custom Overlay</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      height: 100%;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3-fAOD5q4dTRmbhG4yzAweGXz3kU4mQ&signed_in=true&callback=initMap"></script>
+  <!-- <script src="./js/gmapsapi.js"></script> -->
+  <script>
+  var overlay;
+  UCLMapOverlay.prototype = new google.maps.OverlayView();
+
+  // Initialize the map and the custom overlay.
+  var UCL = new google.maps.LatLng(51.524663, -0.133546);
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 18,
+      center: UCL,
+      mapTypeId: google.maps.MapTypeId.SATELLITE
+    });
+
+    var bounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(51.520069, -0.133696),
+        new google.maps.LatLng(51.528042, -0.131620));
+
+    // The photograph is courtesy of UCL.
+    var srcImage = './assets/map_src.jpg';
+
+    // The custom UCLMapOverlay object contains the UCLMap image,
+    // the bounds of the image, and a reference to the map.
+    overlay = new UCLMapOverlay(bounds, srcImage, map);
+  }
+
+  /** @constructor */
+  function UCLMapOverlay(bounds, image, map) {
+
+    // Initialize all properties.
+    this.bounds_ = bounds;
+    this.image_ = image;
+    this.map_ = map;
+
+    // Define a property to hold the image's div. We'll
+    // actually create this div upon receipt of the onAdd()
+    // method so we'll leave it null for now.
+    this.div_ = null;
+
+    // Explicitly call setMap on this overlay.
+    this.setMap(map);
+  }
+
+  /**
+   * onAdd is called when the map's panes are ready and the overlay has been
+   * added to the map.
+   */
+  UCLMapOverlay.prototype.onAdd = function() {
+
+    var div = document.createElement('div');
+    div.style.borderStyle = 'none';
+    div.style.borderWidth = '0px';
+    div.style.position = 'absolute';
+
+    // Create the img element and attach it to the div.
+    var img = document.createElement('img');
+    img.src = this.image_;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.position = 'absolute';
+    div.appendChild(img);
+
+    this.div_ = div;
+
+    // Add the element to the "overlayLayer" pane.
+    var panes = this.getPanes();
+    panes.overlayLayer.appendChild(div);
+  };
+
+  UCLMapOverlay.prototype.draw = function() {
+
+    // We use the south-west and north-east
+    // coordinates of the overlay to peg it to the correct position and size.
+    // To do this, we need to retrieve the projection from the overlay.
+    var overlayProjection = this.getProjection();
+
+    // Retrieve the south-west and north-east coordinates of this overlay
+    // in LatLngs and convert them to pixel coordinates.
+    // We'll use these coordinates to resize the div.
+    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+    // Resize the image's div to fit the indicated dimensions.
+    var div = this.div_;
+    div.style.left = sw.x + 'px';
+    div.style.top = ne.y + 'px';
+    div.style.width = (ne.x - sw.x) + 'px';
+    div.style.height = (sw.y - ne.y) + 'px';
+  };
+
+  // The onRemove() method will be called automatically from the API if
+  // we ever set the overlay's map property to 'null'.
+  UCLMapOverlay.prototype.onRemove = function() {
+    this.div_.parentNode.removeChild(this.div_);
+    this.div_ = null;
+  };
+
+  google.maps.event.addDomListener(window, 'load', initMap);
+  </script>
   </head>
   <body>
     <div id="map"></div>
-    <script>
-
-// This example creates a simple polygon representing the Bermuda Triangle.
-
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
-    center: {lat: 51.524663, lng: -0.133546},
-    mapTypeId: google.maps.MapTypeId.TERRAIN
-  });
-
-  // Define the LatLng coordinates for the polygon's path.
-  var triangleCoords = [
-    {lat: 25.774, lng: -80.190},
-    {lat: 18.466, lng: -66.118},
-    {lat: 32.321, lng: -64.757},
-    {lat: 25.774, lng: -80.190}
-  ];
-
-  // Construct the polygon.
-  var bermudaTriangle = new google.maps.Polygon({
-    paths: triangleCoords,
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35
-  });
-  // bermudaTriangle.setMap(map);
-}
-
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3-fAOD5q4dTRmbhG4yzAweGXz3kU4mQ&signed_in=true&callback=initMap"></script>
   </body>
 </html>

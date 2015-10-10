@@ -1,79 +1,97 @@
-function initMap() {
-  var UCL = new google.maps.LatLng(51.524663, -0.133546);
+var overlay;
+UCLMapOverlay.prototype = new google.maps.OverlayView();
 
+// Initialize the map and the custom overlay.
+var UCL = new google.maps.LatLng(51.524663, -0.133546);
+
+function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 18,
     center: UCL,
-    mapTypeId: google.maps.MapTypeId.SATTELITE
+    mapTypeId: google.maps.MapTypeId.SATELLITE
   });
 
-  var coordInfoWindow = new google.maps.InfoWindow();
-  coordInfoWindow.setContent(createInfoWindowContent(chicago, map.getZoom()));
-  coordInfoWindow.setPosition(chicago);
-  coordInfoWindow.open(map);
+  var bounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(51.520069, -0.133696),
+      new google.maps.LatLng(51.528042, -0.131620));
 
-  map.addListener('zoom_changed', function() {
-    coordInfoWindow.setContent(createInfoWindowContent(chicago, map.getZoom()));
-    coordInfoWindow.open(map);
-  });
+  // The photograph is courtesy of UCL.
+  var srcImage = './assets/map_src.jpg';
+
+  // The custom UCLMapOverlay object contains the UCLMap image,
+  // the bounds of the image, and a reference to the map.
+  overlay = new UCLMapOverlay(bounds, srcImage, map);
 }
 
+/** @constructor */
+function UCLMapOverlay(bounds, image, map) {
 
-var TILE_SIZE = 256;
+  // Initialize all properties.
+  this.bounds_ = bounds;
+  this.image_ = image;
+  this.map_ = map;
 
-function createInfoWindowContent(latLng, zoom) {
-  var scale = 1 << zoom;
+  // Define a property to hold the image's div. We'll
+  // actually create this div upon receipt of the onAdd()
+  // method so we'll leave it null for now.
+  this.div_ = null;
 
-  var worldCoordinate = project(latLng);
-
-  var pixelCoordinate = new google.maps.Point(
-      Math.floor(worldCoordinate.x * scale),
-      Math.floor(worldCoordinate.y * scale));
-
-  var tileCoordinate = new google.maps.Point(
-      Math.floor(worldCoordinate.x * scale / TILE_SIZE),
-      Math.floor(worldCoordinate.y * scale / TILE_SIZE));
-
-  return [
-    'Chicago, IL',
-    'LatLng: ' + latLng,
-    'Zoom level: ' + zoom,
-    'World Coordinate: ' + worldCoordinate,
-    'Pixel Coordinate: ' + pixelCoordinate,
-    'Tile Coordinate: ' + tileCoordinate
-  ].join('<br>');
+  // Explicitly call setMap on this overlay.
+  this.setMap(map);
 }
 
-// The mapping between latitude, longitude and pixels is defined by the web
-// mercator projection.
-function project(latLng) {
-  var siny = Math.sin(latLng.lat() * Math.PI / 180);
+/**
+ * onAdd is called when the map's panes are ready and the overlay has been
+ * added to the map.
+ */
+UCLMapOverlay.prototype.onAdd = function() {
 
-  // Truncating to 0.9999 effectively limits latitude to 89.189. This is
-  // about a third of a tile past the edge of the world tile.
-  siny = Math.min(Math.max(siny, -0.9999), 0.9999);
+  var div = document.createElement('div');
+  div.style.borderStyle = 'none';
+  div.style.borderWidth = '0px';
+  div.style.position = 'absolute';
 
-  return new google.maps.Point(
-      TILE_SIZE * (0.5 + latLng.lng() / 360),
-      TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)));
-  }
+  // Create the img element and attach it to the div.
+  var img = document.createElement('img');
+  img.src = this.image_;
+  img.style.width = '100%';
+  img.style.height = '100%';
+  img.style.position = 'absolute';
+  div.appendChild(img);
 
-// Define the LatLng coordinates for the polygon's path.
-  var triangleCoords = [
-    {lat: 25.774, lng: -80.190},
-    {lat: 18.466, lng: -66.118},
-    {lat: 32.321, lng: -64.757},
-    {lat: 25.774, lng: -80.190}
-  ];
+  this.div_ = div;
 
-  // Construct the polygon.
-  var bermudaTriangle = new google.maps.Polygon({
-    paths: triangleCoords,
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35
-  });
-// bermudaTriangle.setMap(map);
-}
+  // Add the element to the "overlayLayer" pane.
+  var panes = this.getPanes();
+  panes.overlayLayer.appendChild(div);
+};
+
+UCLMapOverlay.prototype.draw = function() {
+
+  // We use the south-west and north-east
+  // coordinates of the overlay to peg it to the correct position and size.
+  // To do this, we need to retrieve the projection from the overlay.
+  var overlayProjection = this.getProjection();
+
+  // Retrieve the south-west and north-east coordinates of this overlay
+  // in LatLngs and convert them to pixel coordinates.
+  // We'll use these coordinates to resize the div.
+  var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+  var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+  // Resize the image's div to fit the indicated dimensions.
+  var div = this.div_;
+  div.style.left = sw.x + 'px';
+  div.style.top = ne.y + 'px';
+  div.style.width = (ne.x - sw.x) + 'px';
+  div.style.height = (sw.y - ne.y) + 'px';
+};
+
+// The onRemove() method will be called automatically from the API if
+// we ever set the overlay's map property to 'null'.
+UCLMapOverlay.prototype.onRemove = function() {
+  this.div_.parentNode.removeChild(this.div_);
+  this.div_ = null;
+};
+
+google.maps.event.addDomListener(window, 'load', initMap);
