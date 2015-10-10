@@ -15,6 +15,7 @@ if(!empty($html)){ //if any html is actually returned
 $link = "https://roombooking.ucl.ac.uk";
 $collection = array();
 $building_rows = $building_xpath->query("//table[@class='rooms']/tr");
+$filename = "data.json";
 
 $counter = 0;
 foreach($building_rows as $element){
@@ -34,6 +35,7 @@ foreach($building_rows as $element){
 	}
 	$counter++;
 }
-print_r($collection);
+echo json_encode($collection);
+file_put_contents($filename, json_encode($collection));
 }
 ?>
