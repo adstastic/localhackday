@@ -34,8 +34,13 @@ $(document).ready(function() {
     $('.point').on('click', function(e) {
       e.stopPropagation();
 
-      alert('clicked point');
-
+      $('.modal')
+        .velocity({
+          bottom: 200,
+          opacity: 1
+        }, {
+          duration: 500
+        });
       return false;
     });
   };
