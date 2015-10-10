@@ -9,11 +9,9 @@ def search_name(query):
 	
 	response = cur.fetchall()
 
-	return [row for row in response]	
-
-#		data[row[0]] = {"name":row[1], "size":row[2], "type":row[3]}
-		# if we want to return a dictionary of mulitple results instead of a list	
-
+	data = {}
+	for row in response:
+		data[row[0]] = {"name":row[1], "size":row[2], "type":row[3]}
 
 def by_id(id_num):
 	
