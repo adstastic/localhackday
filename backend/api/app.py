@@ -31,31 +31,19 @@ def search(query):
 @app.route('/api/room', methods=['POST'])
 @auth.login_required
 def create_room():
-  #  if not request.json: # or not 'name' in request.json:
-  #      abort(400)
-    print 'made it before vars'
-    if request.data:
-        print "HAS DATA"
-    else:
-        print "NO DATA"
+    if not request.json or not 'name' in request.json:
+        abort(400)
+
     name = request.json['name']
     size = request.json['size']
     room_type = request.json['type']
     htmlref = request.json['htmlref']
-    print 'made it before new'
     new = db.add_new(name, size, room_type, htmlref)
-    print 'made it after new'
     return jsonify(new), 201
-    
-    
-    
-    
-
 
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': '404 Not found'}), 404)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
