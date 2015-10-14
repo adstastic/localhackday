@@ -110,5 +110,5 @@ generalData(function(records) {
       }
     });
     i++;
-  }, 200);
+  }, DELAY);
 });
