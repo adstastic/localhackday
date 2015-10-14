@@ -1,9 +1,11 @@
 var request = require('request'),
-    cheerio = require('cheerio');
-fs = require('fs');
+    cheerio = require('cheerio'),
+    fs      = require('fs');
 
-var source = "https://roombooking.ucl.ac.uk";
-var sourceUrl = source + "/rb/bookableSpace/viewAllBookableSpace.html?invoker=EFD";
+var DELAY = 200;
+var SOURCE = "https://roombooking.ucl.ac.uk";
+var SOURCE_URL = SOURCE + "/rb/bookableSpace/viewAllBookableSpace.html?invoker=EFD";
+
 var fields = ['name', 'size', 'type', 'diary', 'info', 'photo', 'location'];
 
 var save = function(json, callback) {
@@ -13,7 +15,7 @@ var save = function(json, callback) {
   })
 };
 var generalData = function(callback) {
-  request(sourceUrl, function(error, response, html) {
+  request(SOURCE_URL, function(error, response, html) {
     if (error) {
       throw error;
     }
@@ -78,7 +80,6 @@ var getLocation = function(json, callback) {
     }
   });
 };
-
 
 console.log('Reading room list');
 
