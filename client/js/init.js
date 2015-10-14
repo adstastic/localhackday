@@ -43,6 +43,16 @@ $(document).ready(function() {
         });
       return false;
     });
+
+    $('.book-btn').on('click', function() {
+      $('.modal')
+        .velocity({
+          bottom: 0,
+          opacity: 0
+        }, {
+          duration: 500
+        });
+    });
   };
 
   $(window).on('resize', function() {
