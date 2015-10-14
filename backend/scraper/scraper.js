@@ -33,8 +33,7 @@ var generalData = function(callback) {
               data[fields[i]] = child.data;
             } else if (child.type == 'tag') {
               data[fields[i]] = {
-                href: child.attribs.href,
-                data: {}
+                href: child.attribs.href
               };
             }
           }
